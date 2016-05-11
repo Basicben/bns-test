@@ -38,13 +38,12 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse
 app.set('view engine', 'jade');
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', "http://localhost:3090");
-
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
     next();
-}
-);
+});
 
 // for all requests containing api req validate jwt.
 console.log('start user roles module');
