@@ -1,0 +1,16 @@
+﻿#!/usr/bin/env node
+var debug = require('debug')('bnc_solutions');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 3030);
+
+var server = app.listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + server.address().port);
+});
+
+// sockets smell like dirty socks, Ben Ari - 11 Dec 2015
+// socket "router" is in sockets/index.js
+var io = require('socket.io').listen(server);
+io.on('connection', require('../sockets/index').index);
+
+
