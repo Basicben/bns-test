@@ -30,12 +30,21 @@ var corsOptions = {
         callback(null, originIsWhitelisted);
     }
 };
-app.use(cors());
+//app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse
 app.set('view engine', 'jade');
+
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', "http://localhost:3090");
+
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    next();
+}
+);
 
 // for all requests containing api req validate jwt.
 console.log('start user roles module');
