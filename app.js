@@ -30,7 +30,7 @@ var corsOptions = {
         callback(null, originIsWhitelisted);
     }
 };
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
