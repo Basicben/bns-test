@@ -23,7 +23,14 @@ var cors = require('cors');
 
 var app = express();
 // allows all origins!
-app.use(cors());
+var whitelist = ['http://localhost:3090', 'http://localhost:8100'];
+var corsOptions = {
+    origin: function (origin, callback) {
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    }
+};
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
