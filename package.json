@@ -22,7 +22,7 @@
     "http": "0.0.0",
     "ipinfo": "^1.2.0",
     "jade": "~1.6.0",
-    "jwt-simple": "^0.3.1",
+    "jwt-simple": "^0.5.6",
     "moment": "^2.10.6",
     "moment-timezone": "^0.5.3",
     "mongoose": "^4.2.3",
