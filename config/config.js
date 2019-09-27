@@ -95,10 +95,10 @@ var appData = {
     mail: {
         service: 'gmail',
         auth: {
-            user: 'benarikutai@gmail.com',
-            pass: 'benariku123456'
+            user: '666666@gmail.com',
+            pass: '555555555'
         },
-        sendFrom: 'benarikutai@gmail.com'
+        sendFrom: '666666@gmail.com'
     },
     surveys: {
         expirationDefaultInDays:7
